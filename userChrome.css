@@ -1,9 +1,11 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
 #nav-bar {
   background: transparent !important;
   margin-top: -38px !important;
   margin-right: 50vw !important;
   height: 38px !important;
-  padding-top: 1px !important;
+  /* padding-top: 1px !important; */ /* Modification v75 */
   padding-left: 80px !important;
   font-size: 10px !important;
 }
@@ -15,7 +17,7 @@
 }
 
 #PersonalToolbar {
-  padding: 0 6px 5px !important;
+   /* padding: 0 6px 5px !important; */ /* Modification v75 */
 }
 
 :root[sizemode="fullscreen"] #nav-bar {
@@ -45,11 +47,11 @@
 #alltabs-button {
   position: fixed !important;
   left: 0px !important;
-  padding-right: 34px !important;
+  padding-right: 50px !important; /* Modification v75 */
 }
 
 #tabs-newtab-button {
-  padding-right: 34px !important;
+  padding-right: 50px !important; /* Modification v75 */
 }
 
 :root[uidensity="compact"] #urlbar, :root[uidensity="compact"] #searchbar {
@@ -73,7 +75,7 @@
 }
 
 #tabbrowser-tabs {
-  height: 38px !important;
+  height: 40px !important;
 }
 
 .tabbrowser-tab::before, .tabbrowser-tab::after {
@@ -84,7 +86,7 @@
   display: none !important;
 }
 
-.tab-throbber, .tab-icon-pending, .tab-icon-image, 
+.tab-throbber, .tab-icon-pending, .tab-icon-image,
 .tab-sharing-icon-overlay, .tab-icon-sound, .tab-close-button {
   margin-top: 0px !important;
 }
@@ -97,13 +99,13 @@
   box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
 }
 
-#tabbrowser-tabs:not([movingtab]) > .tabbrowser-arrowscrollbox > 
-.tabbrowser-tab > .tab-stack > 
+#tabbrowser-tabs:not([movingtab]) > .tabbrowser-arrowscrollbox >
+.tabbrowser-tab > .tab-stack >
 .tab-background[multiselected="true"]:-moz-lwtheme,
-#tabbrowser-tabs:not([movingtab]) > .tabbrowser-arrowscrollbox > 
-.tabbrowser-tab > .tab-stack > 
+#tabbrowser-tabs:not([movingtab]) > .tabbrowser-arrowscrollbox >
+.tabbrowser-tab > .tab-stack >
 .tab-background[selected="true"]:-moz-lwtheme,
-.tabbrowser-tab:hover > .tab-stack > 
+.tabbrowser-tab:hover > .tab-stack >
 .tab-background:not([selected="true"]):not([multiselected]) {
   background-color: rgba(255,255,255,0.1) !important;
 }
@@ -123,12 +125,13 @@
 }
 
 #urlbar[breakout] {
-  --urlbar-height: 25px !important;
-  --urlbar-toolbar-height: 37px !important;
+  /* --urlbar-height: 25px !important;
+  --urlbar-toolbar-height: 37px !important; */
+  /* Modification v75 - This does not seem to affect to tabs */
 }
 
 :root[sizemode="fullscreen"] #urlbar[breakout] {
-  --urlbar-toolbar-height: 38px !important;
+  /* --urlbar-toolbar-height: 38px !important; */ /* Modification v75 */
 }
 
 #urlbar[breakout][breakout-extend] > #urlbar-input-container,
@@ -156,4 +159,42 @@
   --toolbar-field-focus-border-color: none !important;
   --toolbarbutton-border-radius: 4px !important;
   --urlbar-separator-color: var(--lwt-toolbar-field-border-color) !important;
+}
+
+/* ================
+Custom Improvements
+================ */
+
+/* Show close tab button on hover */
+.tab-close-button:not([pinned]){
+  transition: opacity 200ms linear, visibility 0ms linear 200ms !important;
+  opacity: 0;
+  visibility: collapse;
+  display: -moz-inline-box !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button{
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0ms, 0ms !important;;
+}
+/* From https://www.reddit.com/r/FirefoxCSS/comments/g73cml/complete_css_noob_here_how_do_i_add_a_fade_inout/fof3jrs?utm_source=share&utm_medium=web2x */
+
+/* Hide Extension Name in the identity area unless hovered for half a second */
+#identity-box.extensionPage #identity-icon-labels {
+  visibility: collapse !important;
+  transition: visibility 250ms ease-in-out;
+}
+#identity-box.extensionPage:hover #identity-icon-labels {
+  visibility: visible !important;
+  transition: visibility 250ms ease-in-out 500ms;
+}
+/* From https://discourse.mozilla.org/t/make-addressbar-text-extension-name-of-the-extension-shorter-or-hide/28026/3 */
+
+/* Remove back button circle */
+#back-button:not(:hover),
+#back-button:not(:hover) > .toolbarbutton-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }
