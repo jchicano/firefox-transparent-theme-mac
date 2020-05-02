@@ -6,10 +6,12 @@ Transparent theme for Firefox on Mac. Set to compact / dark.
 
 Originally from https://github.com/LDK-iii/firefox-transparent-theme-mac/
 
-One line version: https://github.com/jesusdc99/firefox-transparent-theme-mac/blob/master/userChrome.css
+One line version (for normal density): https://github.com/jesusdc99/firefox-transparent-theme-mac/blob/master/userChrome.css
 <p align="center">
   <img src="screenshot1.png">
 </p>
+
+One line version (for compact density + improvements): https://github.com/jesusdc99/firefox-transparent-theme-mac/blob/master/userChrome2.css
 
 Two line version: As I'm not going to use it, I decided to not include it. Remains in the original repository
 
