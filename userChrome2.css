@@ -1,0 +1,204 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+#nav-bar {
+  background: transparent !important;
+  margin-top: -38px !important;
+  margin-right: 50vw !important;
+  height: 38px !important;
+  padding-top: 1px !important;
+  padding-left: 80px !important;
+  font-size: 10px !important;
+}
+
+#TabsToolbar {
+  margin-left: 50vw !important;
+  height: 38px !important;
+  padding-top: 1px !important;
+}
+
+#PersonalToolbar {
+  padding: 0 6px 5px !important;
+}
+
+:root[sizemode="fullscreen"] #nav-bar {
+  padding-left: 0px !important;
+  padding-top: 0px !important;
+}
+
+:root[sizemode="fullscreen"] #TabsToolbar {
+  padding-top: 0px !important;
+}
+
+.titlebar-buttonbox-container {
+  display: block !important;
+  position: fixed !important;
+  left: 0px !important;
+  margin-top: 11px !important;
+}
+
+#PanelUI-button {
+  display: block !important;
+  position: fixed !important;
+  right: 0px !important;
+  padding-right: 3.5px !important;
+  padding-top: 4.5px !important;
+}
+
+#alltabs-button {
+  position: fixed !important;
+  left: 0px !important;
+  padding-right: 34px !important;
+}
+
+#tabs-newtab-button {
+  padding-right: 34px !important;
+}
+
+:root[uidensity="compact"] #urlbar, :root[uidensity="compact"] #searchbar {
+  min-height: 10px !important;
+}
+
+:root[uidensity="compact"] toolbarbutton.bookmark-item:not(.subviewbutton) {
+  padding: 1px 7px !important;
+}
+
+.bookmark-item > .toolbarbutton-icon {
+  display: none !important;
+}
+
+.titlebar-spacer[type="pre-tabs"], .titlebar-spacer[type="post-tabs"] {
+  display: none !important;
+}
+
+.titlebar-placeholder {
+  border: none !important;
+}
+
+#tabbrowser-tabs {
+  height: 38px !important;
+}
+
+.tabbrowser-tab::before, .tabbrowser-tab::after {
+  display: none !important;
+}
+
+.tab-line {
+  display: none !important;
+}
+
+.tab-throbber, .tab-icon-pending, .tab-icon-image,
+.tab-sharing-icon-overlay, .tab-icon-sound, .tab-close-button {
+  margin-top: 0px !important;
+}
+
+.tab-background {
+  margin: 6px 3px !important;
+  border-radius: var(--toolbarbutton-border-radius) !important;
+  background-image: none !important;
+  background-color: rgba(255,255,255,0) !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
+}
+
+#tabbrowser-tabs:not([movingtab]) > .tabbrowser-arrowscrollbox >
+.tabbrowser-tab > .tab-stack >
+.tab-background[multiselected="true"]:-moz-lwtheme,
+#tabbrowser-tabs:not([movingtab]) > .tabbrowser-arrowscrollbox >
+.tabbrowser-tab > .tab-stack >
+.tab-background[selected="true"]:-moz-lwtheme,
+.tabbrowser-tab:hover > .tab-stack >
+.tab-background:not([selected="true"]):not([multiselected]) {
+  background-color: rgba(255,255,255,0.1) !important;
+}
+
+#urlbar-container {
+  min-width: calc(150px + 24px + 2 * var(--toolbarbutton-inner-padding)) !important;
+}
+
+#urlbar-background {
+  background-color: rgba(255,255,255,0.1) !important;
+  border: none !important;
+  box-shadow: 0 0 5px rgba(0,0,0,0.2) !important;
+}
+
+.urlbarView-body-inner {
+  border-top: none !important;
+}
+
+#urlbar[breakout] {
+  --urlbar-height: 25px !important;
+  --urlbar-toolbar-height: 37px !important;
+}
+
+:root[sizemode="fullscreen"] #urlbar[breakout] {
+  --urlbar-toolbar-height: 38px !important;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-input-container,
+#urlbar-input-container {
+  height: var(--urlbar-height) !important;
+  padding-block: 0px !important;
+  padding-inline: 0px !important;
+  transition: none !important;
+}
+
+#urlbar[breakout][breakout-extend] {
+  top: calc((var(--urlbar-toolbar-height) - var(--urlbar-height)) / 2) !important;
+  left: 0 !important;
+  width: 100% !important;
+}
+
+#TabsToolbar, #nav-bar, #PersonalToolbar, #urlbar {
+  -moz-appearance: -moz-mac-vibrancy-dark !important;
+}
+
+:root {
+  --chrome-content-separator-color: none !important;
+  --lwt-toolbar-field-border-color: rgba(255,255,255,0.2) !important;
+  --tabs-border: transparent !important;
+  --toolbar-field-focus-border-color: none !important;
+  --toolbarbutton-border-radius: 4px !important;
+  --urlbar-separator-color: var(--lwt-toolbar-field-border-color) !important;
+}
+
+/* ================
+Custom Improvements
+================ */
+
+/* Show close tab button on hover */
+.tab-close-button:not([pinned]){
+  transition: opacity 200ms linear, visibility 0ms linear 200ms !important;
+  opacity: 0;
+  visibility: collapse;
+  display: -moz-inline-box !important;
+}
+
+.tabbrowser-tab:not([pinned]):hover .tab-close-button{
+  opacity: 1;
+  visibility: visible;
+  transition-delay: 0ms, 0ms !important;;
+}
+/* From https://www.reddit.com/r/FirefoxCSS/comments/g73cml/complete_css_noob_here_how_do_i_add_a_fade_inout/fof3jrs?utm_source=share&utm_medium=web2x */
+
+/* Hide Extension Name in the identity area unless hovered for half a second */
+#identity-box.extensionPage #identity-icon-labels {
+  visibility: collapse !important;
+  transition: visibility 250ms ease-in-out;
+}
+#identity-box.extensionPage:hover #identity-icon-labels {
+  visibility: visible !important;
+  transition: visibility 250ms ease-in-out 500ms;
+}
+/* From https://discourse.mozilla.org/t/make-addressbar-text-extension-name-of-the-extension-shorter-or-hide/28026/3 */
+
+/* Remove back button circle */
+#back-button:not(:hover),
+#back-button:not(:hover) > .toolbarbutton-icon {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Had to do this because pinned tabs were smaller than the normal ones */
+.tabbrowser-tab[pinned] {
+  min-height: 38px;
+}
