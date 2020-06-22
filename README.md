@@ -2,7 +2,7 @@
 
 Transparent theme for Firefox on Mac. Set to compact / dark.
 
-**Updated for Firefox 75**
+**Updated for Firefox 77**
 
 Originally from https://github.com/LDK-iii/firefox-transparent-theme-mac/
 
