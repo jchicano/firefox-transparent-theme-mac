@@ -180,11 +180,11 @@ Custom Improvements
 /* From https://www.reddit.com/r/FirefoxCSS/comments/g73cml/complete_css_noob_here_how_do_i_add_a_fade_inout/fof3jrs?utm_source=share&utm_medium=web2x */
 
 /* Hide Extension Name in the identity area unless hovered for half a second */
-#identity-box.extensionPage #identity-icon-labels {
+#identity-box.extensionPage #identity-icon-label {
   visibility: collapse !important;
   transition: visibility 250ms ease-in-out;
 }
-#identity-box.extensionPage:hover #identity-icon-labels {
+#identity-box.extensionPage:hover #identity-icon-label {
   visibility: visible !important;
   transition: visibility 250ms ease-in-out 500ms;
 }
