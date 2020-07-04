@@ -200,5 +200,9 @@ Custom Improvements
 
 /* Had to do this because pinned tabs were smaller than the normal ones */
 .tabbrowser-tab[pinned] {
-  min-height: 38px;
+  min-height: 38px !important;
 }
+
+/* Hiding tabs scroll */
+toolbarbutton#scrollbutton-up, toolbarbutton#scrollbutton-down {display:none !important;}
+/* From https://support.mozilla.org/en-US/questions/1286635 */
